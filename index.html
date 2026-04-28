@@ -29,6 +29,80 @@
       display: flex;
     }
 
+
+    /* ── LIGHT MODE ── */
+    body.light-mode {
+      --bg:       #f4f4f6;
+      --surface:  rgba(255,255,255,0.85);
+      --surface2: rgba(255,255,255,0.95);
+      --border:   rgba(0,0,0,0.09);
+      --border2:  rgba(0,0,0,0.15);
+      --text:     #111111;
+      --muted:    rgba(0,0,0,0.45);
+    }
+    body.light-mode .sidebar {
+      background: rgba(255,255,255,0.92);
+      border-right-color: rgba(0,0,0,0.09);
+    }
+    body.light-mode .profile-menu {
+      background: #ffffff;
+      border-color: rgba(0,0,0,0.12);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.14);
+    }
+    body.light-mode .stat {
+      background: #fff;
+      border-color: rgba(0,0,0,0.09);
+    }
+    body.light-mode .chart-box {
+      background: #fff;
+      border-color: rgba(0,0,0,0.09);
+    }
+    body.light-mode .contacts-table-wrap {
+      background: #fff;
+      border-color: rgba(0,0,0,0.09);
+    }
+    body.light-mode thead th {
+      background: rgba(0,0,0,0.025);
+    }
+    body.light-mode .modal {
+      background: #fff;
+      border-color: rgba(0,0,0,0.12);
+    }
+    body.light-mode .form-input {
+      background: rgba(0,0,0,0.04);
+      border-color: rgba(0,0,0,0.12);
+      color: #111;
+    }
+    body.light-mode .form-input::placeholder { color: rgba(0,0,0,0.28); }
+    body.light-mode .settings-select {
+      background: rgba(0,0,0,0.05);
+      border-color: rgba(0,0,0,0.12);
+      color: #111;
+    }
+    body.light-mode .settings-select option { background: #fff; color: #111; }
+    body.light-mode .nav-item:hover { background: rgba(0,0,0,0.06); }
+    body.light-mode .menu-item:hover { background: rgba(0,0,0,0.06); }
+    body.light-mode .user-row:hover { background: rgba(0,0,0,0.05); }
+    body.light-mode .c-btn { background: rgba(0,0,0,0.06); border-color: rgba(0,0,0,0.10); }
+    body.light-mode .c-btn:hover { background: rgba(0,0,0,0.12); }
+    body.light-mode .toggle-track { background: rgba(0,0,0,0.15); }
+    body.light-mode #particles canvas { opacity: 0.15; }
+    body.light-mode .login-card {
+      background: rgba(255,255,255,0.96);
+      border-color: rgba(0,0,0,0.10);
+      box-shadow: 0 32px 80px rgba(0,0,0,0.12);
+    }
+    body.light-mode .login-overlay { background: #f4f4f6; }
+
+    /* Theme toggle button */
+    .theme-toggle {
+      width: 34px; height: 34px; border-radius: 10px;
+      background: var(--surface2); border: 1px solid var(--border);
+      display: grid; place-items: center; cursor: pointer;
+      color: var(--muted); transition: all .2s; flex-shrink: 0;
+    }
+    .theme-toggle:hover { background: var(--surface); color: var(--text); }
+    .theme-toggle svg { width: 16px; height: 16px; }
     #particles { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
 
     /* ══════════════════════════
@@ -967,6 +1041,10 @@
     </button>
     <div class="topbar-title" data-i18n-html="topbarTitle">My <span>Cards</span></div>
     <div class="topbar-right">
+      <button class="theme-toggle" onclick="toggleTheme()" id="theme-btn" title="Toggle theme">
+        <svg id="theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg id="theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
       <div class="search-box">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
         <input id="search-input" type="text" data-i18n-ph="searchCards" placeholder="Search cards…" oninput="filterCards(this.value)">
@@ -1985,6 +2063,25 @@ function toggleSidebar() {
   document.getElementById('sidebar-overlay').classList.toggle('open');
 }
 
+// ── THEME ──
+function toggleTheme() {
+  var isLight = document.body.classList.toggle('light-mode');
+  localStorage.setItem('cardzy_theme', isLight ? 'light' : 'dark');
+  document.getElementById('theme-icon-sun').style.display  = isLight ? '' : 'none';
+  document.getElementById('theme-icon-moon').style.display = isLight ? 'none' : '';
+}
+(function restoreTheme() {
+  var theme = localStorage.getItem('cardzy_theme');
+  if (theme === 'light') {
+    document.body.classList.add('light-mode');
+    document.addEventListener('DOMContentLoaded', function() {
+      var sun  = document.getElementById('theme-icon-sun');
+      var moon = document.getElementById('theme-icon-moon');
+      if (sun)  sun.style.display  = '';
+      if (moon) moon.style.display = 'none';
+    });
+  }
+})();
 // ── i18n ──
 var TRANSLATIONS = {
   en: {

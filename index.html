@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -848,20 +848,20 @@
     </div>
     <div class="badge-restricted">
       <span class="badge-dot"></span>
-      ACCESO RESTRINGIDO
+      <span data-i18n="loginTitle">ACCESO RESTRINGIDO</span>
     </div>
-    <p class="login-sub">Panel privado de gestión de tarjetas digitales.</p>
+    <p class="login-sub" data-i18n="loginSub">Panel privado de gestión de tarjetas digitales.</p>
     <form id="login-form" onsubmit="handleLogin(event)">
       <div class="form-group">
-        <label class="form-label">Usuario</label>
-        <input id="inp-user" class="form-input" type="text" placeholder="usuario" autocomplete="username" spellcheck="false">
+        <label class="form-label" data-i18n="username">Usuario</label>
+        <input id="inp-user" class="form-input" type="text" data-i18n-ph="usernamePh" placeholder="usuario" autocomplete="username" spellcheck="false">
       </div>
       <div class="form-group">
-        <label class="form-label">Contraseña</label>
+        <label class="form-label" data-i18n="password">Contraseña</label>
         <input id="inp-pass" class="form-input" type="password" placeholder="••••••••" autocomplete="current-password">
       </div>
-      <div class="error-msg" id="err-msg">Usuario o contraseña incorrectos.</div>
-      <button class="btn-login" type="submit" id="btn-login">Ingresar al panel →</button>
+      <div class="error-msg" id="err-msg" data-i18n="loginError">Usuario o contraseña incorrectos.</div>
+      <button class="btn-login" type="submit" id="btn-login" data-i18n="loginBtn">Ingresar al panel →</button>
     </form>
     <div class="login-footer">Powered by <span>EA Creative</span> · Cardzy v1.0</div>
   </div>
@@ -880,31 +880,31 @@
     </div>
   </div>
 
-  <div class="nav-label">Main</div>
+  <div class="nav-label" data-i18n="main">Main</div>
   <a class="nav-item active" href="#" onclick="showView('cards'); return false;">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="7" height="7" rx="1"/><rect x="15" y="3" width="7" height="7" rx="1"/><rect x="2" y="14" width="7" height="7" rx="1"/><rect x="15" y="14" width="7" height="7" rx="1"/></svg>
-    My Cards
+    <span data-i18n="myCards">My Cards</span>
   </a>
   <a class="nav-item" href="#" onclick="showView('analytics'); return false;">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-    Analytics
+    <span data-i18n="analytics">Analytics</span>
   </a>
 
   <a class="nav-item" href="#" onclick="showView('contacts'); return false;">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-    Contacts
+    <span data-i18n="contacts">Contacts</span>
   </a>
 
   <div class="nav-section">
-    <div class="nav-label">System</div>
+    <div class="nav-label" data-i18n="system">System</div>
     <a class="nav-item" href="#" onclick="showView('integrations'); return false;">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
-      Integrations
+      <span data-i18n="integrations">Integrations</span>
     </a>
 
     <a class="nav-item" href="#" onclick="openSettingsModal(); return false;">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
-      Settings
+      <span data-i18n="settings">Settings</span>
     </a>
   </div>
 
@@ -920,25 +920,25 @@
       </div>
       <div class="menu-item" onclick="openProfileModal()">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-        Edit Profile
+        <span data-i18n="editProfile">Edit Profile</span>
       </div>
       <div class="menu-item" onclick="openSettingsModal()">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
-        Settings
+        <span data-i18n="settings">Settings</span>
       </div>
       <div class="menu-item" onclick="showView('cards'); document.getElementById('profile-menu').classList.remove('open');">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10z"/></svg>
-        My Cards
+        <span data-i18n="myCards">My Cards</span>
       </div>
       <div class="menu-divider"></div>
       <div class="menu-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
-        Upgrade Plan
+        <span data-i18n="upgradePlan">Upgrade Plan</span>
       </div>
       <div class="menu-divider"></div>
       <div class="menu-item danger" onclick="logOut()">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
-        Log Out
+        <span data-i18n="logOut">Log Out</span>
       </div>
     </div>
 
@@ -965,15 +965,15 @@
         <line x1="3" y1="18" x2="21" y2="18"/>
       </svg>
     </button>
-    <div class="topbar-title">My <span>Cards</span></div>
+    <div class="topbar-title" data-i18n-html="topbarTitle">My <span>Cards</span></div>
     <div class="topbar-right">
       <div class="search-box">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-        <input id="search-input" type="text" placeholder="Search cards…" oninput="filterCards(this.value)">
+        <input id="search-input" type="text" data-i18n-ph="searchCards" placeholder="Search cards…" oninput="filterCards(this.value)">
       </div>
       <button class="btn-primary" onclick="openModal()">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-        New Card
+        <span data-i18n="newCard">New Card</span>
       </button>
     </div>
   </div>
@@ -991,17 +991,17 @@
         <span class="stat-change" style="background:rgba(34,197,94,0.12);color:#22c55e">+1 new</span>
       </div>
       <div class="stat-val">4</div>
-      <div class="stat-label">Active Cards</div>
+      <div class="stat-label" data-i18n="activeCards">Active Cards</div>
     </div>
     <div class="stat">
       <div class="stat-top">
         <div class="stat-icon" style="background:linear-gradient(135deg,#22c55e,#16a34a)">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
         </div>
-        <span class="stat-change" style="background:rgba(34,197,94,0.12);color:#22c55e">All live</span>
+        <span class="stat-change" style="background:rgba(34,197,94,0.12);color:#22c55e" data-i18n="allLive">All live</span>
       </div>
-      <div class="stat-val" style="color:#22c55e">Live</div>
-      <div class="stat-label">Status</div>
+      <div class="stat-val" style="color:#22c55e" data-i18n="live">Live</div>
+      <div class="stat-label" data-i18n="status">Status</div>
     </div>
     <div class="stat">
       <div class="stat-top">
@@ -1010,7 +1010,7 @@
         </div>
       </div>
       <div class="stat-val">3</div>
-      <div class="stat-label">Custom Domains</div>
+      <div class="stat-label" data-i18n="customDomains">Custom Domains</div>
     </div>
     <div class="stat">
       <div class="stat-top">
@@ -1020,16 +1020,16 @@
         <span class="stat-change" style="background:rgba(168,85,247,0.12);color:#a855f7">EN · ES</span>
       </div>
       <div class="stat-val">2</div>
-      <div class="stat-label">Languages</div>
+      <div class="stat-label" data-i18n="languages">Languages</div>
     </div>
   </div>
 
   <!-- Cards Section -->
   <div class="section-head">
-    <div class="section-title">All Cards</div>
+    <div class="section-title" data-i18n="allCards">All Cards</div>
     <div style="display:flex;align-items:center;gap:10px;">
       <select class="settings-select" onchange="sortCards(this.value)" style="font-size:12px;">
-        <option value="default">Default</option>
+        <option value="default" data-i18n="sortDefault">Default</option>
         <option value="name">A → Z</option>
         <option value="name-desc">Z → A</option>
       </select>
@@ -1068,9 +1068,7 @@
         </div>
         <div class="card-actions">
           <a class="btn-view" href="https://card.eacreativestudio.com" target="_blank" style="background:linear-gradient(135deg,#ff7a3b,#e05e1e)">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            View Card
-          </a>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg><span data-i18n="viewCard">View Card</span></a>
           <button class="btn-sq" onclick="copyURL('https://card.eacreativestudio.com')" title="Copy link">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -1103,9 +1101,7 @@
         </div>
         <div class="card-actions">
           <a class="btn-view" href="https://9c641b79.eacreativeagency.pages.dev" target="_blank" style="background:linear-gradient(135deg,#ff7a3b,#e05e1e)">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            View Card
-          </a>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg><span data-i18n="viewCard">View Card</span></a>
           <button class="btn-sq" onclick="copyURL('https://9c641b79.eacreativeagency.pages.dev')" title="Copy link">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -1138,9 +1134,7 @@
         </div>
         <div class="card-actions">
           <a class="btn-view" href="https://card.sophiavoiceai.com" target="_blank" style="background:linear-gradient(135deg,#ff7a3b,#e05e1e)">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            View Card
-          </a>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg><span data-i18n="viewCard">View Card</span></a>
           <button class="btn-sq" onclick="copyURL('https://card.sophiavoiceai.com')" title="Copy link">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -1173,9 +1167,7 @@
         </div>
         <div class="card-actions">
           <a class="btn-view" href="#" target="_blank" style="background:linear-gradient(135deg,#ff7a3b,#e05e1e)">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            View Card
-          </a>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg><span data-i18n="viewCard">View Card</span></a>
           <button class="btn-sq" title="Copy link">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
@@ -1191,7 +1183,7 @@
       <div class="add-circle">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
       </div>
-      <div class="add-label">Create New Card</div>
+      <div class="add-label" data-i18n="createNewCard">Create New Card</div>
     </a>
 
   </div><!-- /cards-grid -->
@@ -1201,38 +1193,38 @@
   <!-- ══ VIEW: ANALYTICS ══ -->
   <div class="view" id="view-analytics">
     <div class="section-head" style="margin-bottom:24px;">
-      <div class="section-title">Resumen del período</div>
+      <div class="section-title" data-i18n="periodSummary">Resumen del período</div>
       <select class="settings-select" id="analytics-range" onchange="renderCharts()">
-        <option value="7">Últimos 7 días</option>
-        <option value="14">Últimos 14 días</option>
-        <option value="30">Últimos 30 días</option>
+        <option value="7" data-i18n="last7">Últimos 7 días</option>
+        <option value="14" data-i18n="last14">Últimos 14 días</option>
+        <option value="30" data-i18n="last30">Últimos 30 días</option>
       </select>
     </div>
 
     <!-- Mini stats -->
     <div class="analytics-grid2" style="margin-bottom:18px;">
       <div class="chart-box" style="padding:18px 22px;">
-        <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)">Total Views</div>
+        <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)" data-i18n="totalViews">Total Views</div>
         <div style="font-family:'Space Grotesk',sans-serif;font-size:32px;font-weight:800;margin:6px 0 2px">1,284</div>
-        <div style="font-size:11px;color:#22c55e">↑ 12% vs período anterior</div>
+        <div style="font-size:11px;color:#22c55e" data-i18n="vsPercent">↑ 12% vs período anterior</div>
       </div>
       <div class="chart-box" style="padding:18px 22px;">
-        <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)">Leads Capturados</div>
+        <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)" data-i18n="capturedLeads">Leads Capturados</div>
         <div style="font-family:'Space Grotesk',sans-serif;font-size:32px;font-weight:800;margin:6px 0 2px">38</div>
-        <div style="font-size:11px;color:#22c55e">↑ 5 vs período anterior</div>
+        <div style="font-size:11px;color:#22c55e" data-i18n="vsLeads">↑ 5 vs período anterior</div>
       </div>
       <div class="chart-box" style="padding:18px 22px;">
-        <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)">Conversión</div>
+        <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)" data-i18n="conversion">Conversión</div>
         <div style="font-family:'Space Grotesk',sans-serif;font-size:32px;font-weight:800;margin:6px 0 2px">2.96%</div>
-        <div style="font-size:11px;color:var(--muted)">Views → Lead</div>
+        <div style="font-size:11px;color:var(--muted)" data-i18n="viewsVsLead">Views → Lead</div>
       </div>
     </div>
 
     <!-- Line chart + Top cards -->
     <div class="analytics-grid">
       <div class="chart-box">
-        <div class="chart-title">Vistas por día</div>
-        <div class="chart-sub">Todas las cards combinadas</div>
+        <div class="chart-title" data-i18n="viewsPerDay">Vistas por día</div>
+        <div class="chart-sub" data-i18n="allCombined">Todas las cards combinadas</div>
         <canvas id="views-chart" class="chart-canvas" height="180"></canvas>
         <div class="legend">
           <div class="legend-item"><div class="legend-dot" style="background:#ff7a3b"></div>EA Studio</div>
@@ -1242,16 +1234,16 @@
         </div>
       </div>
       <div class="chart-box">
-        <div class="chart-title">Top Cards</div>
-        <div class="chart-sub">Por número de vistas</div>
+        <div class="chart-title" data-i18n="topCards">Top Cards</div>
+        <div class="chart-sub" data-i18n="byViews">Por número de vistas</div>
         <div id="top-cards-list" style="margin-top:8px;"></div>
       </div>
     </div>
 
     <!-- Bar chart -->
     <div class="chart-box">
-      <div class="chart-title">Leads por card</div>
-      <div class="chart-sub">Formularios completados en el período</div>
+      <div class="chart-title" data-i18n="leadsPerCard">Leads por card</div>
+      <div class="chart-sub" data-i18n="formsCompleted">Formularios completados en el período</div>
       <canvas id="leads-chart" class="chart-canvas" height="120"></canvas>
     </div>
   </div><!-- /view-analytics -->
@@ -1266,9 +1258,9 @@
         </div>
         <div style="flex:1">
           <div style="font-size:14px;font-weight:700">Notion</div>
-          <div style="font-size:11px;color:var(--muted);margin-top:2px">Base de datos de leads</div>
+          <div style="font-size:11px;color:var(--muted);margin-top:2px" data-i18n="leadsDB">Base de datos de leads</div>
         </div>
-        <div style="font-size:11px;font-weight:700;color:#22c55e;background:rgba(34,197,94,0.12);padding:4px 10px;border-radius:100px;">Conectado</div>
+        <div style="font-size:11px;font-weight:700;color:#22c55e;background:rgba(34,197,94,0.12);padding:4px 10px;border-radius:100px;" data-i18n="connected">Conectado</div>
       </div>
       <!-- Cloudflare -->
       <div class="chart-box" style="display:flex;align-items:center;gap:16px;">
@@ -1277,9 +1269,9 @@
         </div>
         <div style="flex:1">
           <div style="font-size:14px;font-weight:700">Cloudflare Pages</div>
-          <div style="font-size:11px;color:var(--muted);margin-top:2px">Hosting de tarjetas</div>
+          <div style="font-size:11px;color:var(--muted);margin-top:2px" data-i18n="cardHosting">Hosting de tarjetas</div>
         </div>
-        <div style="font-size:11px;font-weight:700;color:#22c55e;background:rgba(34,197,94,0.12);padding:4px 10px;border-radius:100px;">Conectado</div>
+        <div style="font-size:11px;font-weight:700;color:#22c55e;background:rgba(34,197,94,0.12);padding:4px 10px;border-radius:100px;" data-i18n="connected">Conectado</div>
       </div>
       <!-- WhatsApp -->
       <div class="chart-box" style="display:flex;align-items:center;gap:16px;">
@@ -1288,9 +1280,9 @@
         </div>
         <div style="flex:1">
           <div style="font-size:14px;font-weight:700">WhatsApp</div>
-          <div style="font-size:11px;color:var(--muted);margin-top:2px">Notificaciones de leads</div>
+          <div style="font-size:11px;color:var(--muted);margin-top:2px" data-i18n="leadNotif">Notificaciones de leads</div>
         </div>
-        <div style="font-size:11px;font-weight:700;color:var(--muted);background:var(--surface2);padding:4px 10px;border-radius:100px;">Pendiente</div>
+        <div style="font-size:11px;font-weight:700;color:var(--muted);background:var(--surface2);padding:4px 10px;border-radius:100px;" data-i18n="pending">Pendiente</div>
       </div>
       <!-- Zapier -->
       <div class="chart-box" style="display:flex;align-items:center;gap:16px;">
@@ -1299,9 +1291,9 @@
         </div>
         <div style="flex:1">
           <div style="font-size:14px;font-weight:700">Zapier</div>
-          <div style="font-size:11px;color:var(--muted);margin-top:2px">Automatizaciones de CRM</div>
+          <div style="font-size:11px;color:var(--muted);margin-top:2px" data-i18n="crmAuto">Automatizaciones de CRM</div>
         </div>
-        <div style="font-size:11px;font-weight:700;color:var(--muted);background:var(--surface2);padding:4px 10px;border-radius:100px;">Pendiente</div>
+        <div style="font-size:11px;font-weight:700;color:var(--muted);background:var(--surface2);padding:4px 10px;border-radius:100px;" data-i18n="pending">Pendiente</div>
       </div>
       <!-- Gmail -->
       <div class="chart-box" style="display:flex;align-items:center;gap:16px;">
@@ -1310,9 +1302,9 @@
         </div>
         <div style="flex:1">
           <div style="font-size:14px;font-weight:700">Gmail</div>
-          <div style="font-size:11px;color:var(--muted);margin-top:2px">Email automático a leads</div>
+          <div style="font-size:11px;color:var(--muted);margin-top:2px" data-i18n="autoEmail">Email automático a leads</div>
         </div>
-        <div style="font-size:11px;font-weight:700;color:var(--muted);background:var(--surface2);padding:4px 10px;border-radius:100px;">Pendiente</div>
+        <div style="font-size:11px;font-weight:700;color:var(--muted);background:var(--surface2);padding:4px 10px;border-radius:100px;" data-i18n="pending">Pendiente</div>
       </div>
       <!-- Google Analytics -->
       <div class="chart-box" style="display:flex;align-items:center;gap:16px;">
@@ -1321,9 +1313,9 @@
         </div>
         <div style="flex:1">
           <div style="font-size:14px;font-weight:700">Google Analytics</div>
-          <div style="font-size:11px;color:var(--muted);margin-top:2px">Métricas avanzadas</div>
+          <div style="font-size:11px;color:var(--muted);margin-top:2px" data-i18n="advMetrics">Métricas avanzadas</div>
         </div>
-        <div style="font-size:11px;font-weight:700;color:var(--muted);background:var(--surface2);padding:4px 10px;border-radius:100px;">Pendiente</div>
+        <div style="font-size:11px;font-weight:700;color:var(--muted);background:var(--surface2);padding:4px 10px;border-radius:100px;" data-i18n="pending">Pendiente</div>
       </div>
     </div>
   </div><!-- /view-integrations -->
@@ -1331,15 +1323,15 @@
   <!-- ══ VIEW: CONTACTS ══ -->
   <div class="view" id="view-contacts">
     <div class="section-head" style="margin-bottom:20px;">
-      <div class="section-title">Todos los contactos</div>
+      <div class="section-title" data-i18n="allContacts">Todos los contactos</div>
       <div style="display:flex;align-items:center;gap:10px;">
         <div class="search-box">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-          <input id="contacts-search" type="text" placeholder="Search contacts…" oninput="filterContacts(this.value)">
+          <input id="contacts-search" type="text" data-i18n-ph="searchContacts" placeholder="Search contacts…" oninput="filterContacts(this.value)">
         </div>
         <button class="btn-primary" onclick="exportCSV()">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
-          Export CSV
+          <span data-i18n="exportCSV">Export CSV</span>
         </button>
       </div>
     </div>
@@ -1348,10 +1340,10 @@
       <table>
         <thead>
           <tr>
-            <th>Contacto</th>
-            <th>Teléfono</th>
-            <th>Card</th>
-            <th>Fecha</th>
+            <th data-i18n="thContact">Contacto</th>
+            <th data-i18n="thPhone">Teléfono</th>
+            <th data-i18n="thCard">Card</th>
+            <th data-i18n="thDate">Fecha</th>
             <th></th>
           </tr>
         </thead>
@@ -1416,53 +1408,53 @@
 <!-- MODAL SETTINGS -->
 <div class="profile-modal-overlay" id="settings-modal-overlay" onclick="closeSettingsModal(event)">
   <div class="modal" style="max-width:460px;">
-    <div class="modal-title">⚙ <span>Settings</span></div>
+    <div class="modal-title">⚙ <span data-i18n="settings">Settings</span></div>
 
     <div class="settings-group">
-      <div class="settings-group-title">Notificaciones</div>
+      <div class="settings-group-title" data-i18n="notifications">Notificaciones</div>
       <div class="settings-row">
         <div>
-          <div class="settings-label">Nuevos leads</div>
-          <div class="settings-hint">Alerta cuando alguien completa el formulario</div>
+          <div class="settings-label" data-i18n="newLeads">Nuevos leads</div>
+          <div class="settings-hint" data-i18n="newLeadsHint">Alerta cuando alguien completa el formulario</div>
         </div>
         <label class="toggle"><input type="checkbox" checked><div class="toggle-track"></div></label>
       </div>
       <div class="settings-row">
         <div>
-          <div class="settings-label">Card views</div>
-          <div class="settings-hint">Resumen semanal de visitas</div>
+          <div class="settings-label" data-i18n="cardViews">Card views</div>
+          <div class="settings-hint" data-i18n="cardViewsHint">Resumen semanal de visitas</div>
         </div>
         <label class="toggle"><input type="checkbox" checked><div class="toggle-track"></div></label>
       </div>
       <div class="settings-row">
         <div>
-          <div class="settings-label">Actualizaciones del sistema</div>
-          <div class="settings-hint">Nuevas funciones y mejoras</div>
+          <div class="settings-label" data-i18n="systemUpdates">Actualizaciones del sistema</div>
+          <div class="settings-hint" data-i18n="systemUpdatesHint">Nuevas funciones y mejoras</div>
         </div>
         <label class="toggle"><input type="checkbox"><div class="toggle-track"></div></label>
       </div>
     </div>
 
     <div class="settings-group">
-      <div class="settings-group-title">Apariencia</div>
+      <div class="settings-group-title" data-i18n="appearance">Apariencia</div>
       <div class="settings-row">
         <div>
-          <div class="settings-label">Idioma</div>
+          <div class="settings-label" data-i18n="language">Idioma</div>
         </div>
-        <select class="settings-select">
-          <option>Español</option>
-          <option>English</option>
+        <select class="settings-select" id="lang-select" onchange="setLanguage(this.value)">
+          <option value="es">Español</option>
+          <option value="en">English</option>
         </select>
       </div>
       <div class="settings-row">
-        <div><div class="settings-label">Animación de fondo</div></div>
+        <div><div class="settings-label" data-i18n="bgAnimation">Animación de fondo</div></div>
         <label class="toggle">
           <input type="checkbox" id="bg-enabled" checked onchange="BG.setEnabled(this.checked)">
           <div class="toggle-track"></div>
         </label>
       </div>
       <div class="settings-row">
-        <div><div class="settings-label">Tipo de animación</div></div>
+        <div><div class="settings-label" data-i18n="animationType">Tipo de animación</div></div>
         <select class="settings-select" id="bg-type" onchange="BG.setType(this.value)">
           <option value="searchlights">✦ Reflectores Hollywood</option>
           <option value="embers">🔥 Ember Particles</option>
@@ -1473,26 +1465,26 @@
     </div>
 
     <div class="settings-group">
-      <div class="settings-group-title">Privacidad</div>
+      <div class="settings-group-title" data-i18n="privacy">Privacidad</div>
       <div class="settings-row">
         <div>
-          <div class="settings-label">Cards públicas</div>
-          <div class="settings-hint">Cualquiera con el link puede ver tus cards</div>
+          <div class="settings-label" data-i18n="publicCards">Cards públicas</div>
+          <div class="settings-hint" data-i18n="publicCardsHint">Cualquiera con el link puede ver tus cards</div>
         </div>
         <label class="toggle"><input type="checkbox" checked><div class="toggle-track"></div></label>
       </div>
       <div class="settings-row">
         <div>
-          <div class="settings-label">Ocultar analytics</div>
-          <div class="settings-hint">No compartir estadísticas con terceros</div>
+          <div class="settings-label" data-i18n="hideAnalytics">Ocultar analytics</div>
+          <div class="settings-hint" data-i18n="hideAnalyticsHint">No compartir estadísticas con terceros</div>
         </div>
         <label class="toggle"><input type="checkbox"><div class="toggle-track"></div></label>
       </div>
     </div>
 
     <div class="modal-actions">
-      <button class="btn-cancel" onclick="closeSettingsModal()">Cerrar</button>
-      <button class="btn-create" onclick="saveSettings()">Guardar</button>
+      <button class="btn-cancel" onclick="closeSettingsModal()" data-i18n="close">Cerrar</button>
+      <button class="btn-create" onclick="saveSettings()" data-i18n="save">Guardar</button>
     </div>
   </div>
 </div>
@@ -1500,31 +1492,31 @@
 <!-- MODAL EDIT PROFILE -->
 <div class="profile-modal-overlay" id="profile-modal-overlay" onclick="closeProfileModal(event)">
   <div class="modal" style="max-width:420px;">
-    <div class="modal-title">Edit <span>Profile</span></div>
+    <div class="modal-title" data-i18n-html="editProfileTitle">Edit <span>Profile</span></div>
     <div style="text-align:center;margin-bottom:28px;">
       <div class="profile-avatar-edit" id="avatar-preview">JD
         <span class="avatar-edit-hint">change initials</span>
       </div>
     </div>
     <div class="field">
-      <label>Full Name</label>
+      <label data-i18n="fullName">Full Name</label>
       <input id="pf-name" type="text" value="Johan Delgado">
     </div>
     <div class="field">
-      <label>Email</label>
+      <label data-i18n="email">Email</label>
       <input id="pf-email" type="email" value="eacreativeagency@gmail.com">
     </div>
     <div class="field">
-      <label>Company / Role</label>
+      <label data-i18n="companyRole">Company / Role</label>
       <input id="pf-role" type="text" value="EA Creative · Pro">
     </div>
     <div class="field">
-      <label>Avatar Initials</label>
+      <label data-i18n="avatarInitials">Avatar Initials</label>
       <input id="pf-initials" type="text" maxlength="2" value="JD" oninput="document.getElementById('avatar-preview').childNodes[0].textContent=this.value.toUpperCase()||'?'">
     </div>
     <div class="modal-actions">
-      <button class="btn-cancel" onclick="closeProfileModal()">Cancelar</button>
-      <button class="btn-create" onclick="saveProfile()">Guardar</button>
+      <button class="btn-cancel" onclick="closeProfileModal()" data-i18n="cancel">Cancelar</button>
+      <button class="btn-create" onclick="saveProfile()" data-i18n="save">Guardar</button>
     </div>
   </div>
 </div>
@@ -1532,37 +1524,37 @@
 <!-- MODAL NEW CARD -->
 <div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
   <div class="modal">
-    <div class="modal-title">New <span>Card</span></div>
+    <div class="modal-title" data-i18n-html="newCardTitle">New <span>Card</span></div>
     <div class="field">
-      <label>Card Name</label>
+      <label data-i18n="cardName">Card Name</label>
       <input id="f-name" type="text" placeholder="EA Creative Studio">
     </div>
     <div class="field">
-      <label>Role / Description</label>
+      <label data-i18n="roleDesc">Role / Description</label>
       <input id="f-sub" type="text" placeholder="Director Creativo & Videógrafo">
     </div>
     <div class="field">
-      <label>Card URL</label>
+      <label data-i18n="cardURL">Card URL</label>
       <input id="f-url" type="text" placeholder="card.eacreativestudio.com">
     </div>
     <div class="field">
-      <label>OG Image URL (opcional)</label>
+      <label data-i18n="ogURL">OG Image URL (optional)</label>
       <input id="f-img" type="text" placeholder="https://...">
     </div>
     <div class="field">
-      <label>Color de marca</label>
+      <label data-i18n="brandColor">Color de marca</label>
       <select id="f-color">
-        <option value="linear-gradient(135deg,#ff7a3b,#e05e1e)">Naranja — Video / Studio</option>
-        <option value="linear-gradient(135deg,#3b82f6,#1d4ed8)">Azul — Tech / AI</option>
-        <option value="linear-gradient(135deg,#22c55e,#16a34a)">Verde — Salud / Bienestar</option>
-        <option value="linear-gradient(135deg,#a855f7,#7c3aed)">Violeta — Eventos / Premium</option>
-        <option value="linear-gradient(135deg,#ec4899,#be185d)">Rosa — Lifestyle / Pets</option>
-        <option value="linear-gradient(135deg,#f59e0b,#d97706)">Dorado — Gastronomía</option>
+        <option value="linear-gradient(135deg,#ff7a3b,#e05e1e)" data-i18n="colorOrange">Naranja — Video / Studio</option>
+        <option value="linear-gradient(135deg,#3b82f6,#1d4ed8)" data-i18n="colorBlue">Azul — Tech / AI</option>
+        <option value="linear-gradient(135deg,#22c55e,#16a34a)" data-i18n="colorGreen">Verde — Salud / Bienestar</option>
+        <option value="linear-gradient(135deg,#a855f7,#7c3aed)" data-i18n="colorPurple">Violeta — Eventos / Premium</option>
+        <option value="linear-gradient(135deg,#ec4899,#be185d)" data-i18n="colorPink">Rosa — Lifestyle / Pets</option>
+        <option value="linear-gradient(135deg,#f59e0b,#d97706)" data-i18n="colorGold">Dorado — Gastronomía</option>
       </select>
     </div>
     <div class="modal-actions">
-      <button class="btn-cancel" onclick="closeModal()">Cancelar</button>
-      <button class="btn-create" onclick="createCard()">Crear Card</button>
+      <button class="btn-cancel" onclick="closeModal()" data-i18n="cancel">Cancelar</button>
+      <button class="btn-create" onclick="createCard()" data-i18n="createCard">Crear Card</button>
     </div>
   </div>
 </div>
@@ -1572,9 +1564,11 @@
 <script>
 function copyURL(url) {
   navigator.clipboard.writeText(url).then(function() {
-    var t = document.getElementById('toast');
-    t.classList.add('show');
-    setTimeout(function() { t.classList.remove('show'); }, 2000);
+    var toast = document.getElementById('toast');
+    var lang = localStorage.getItem('cardzy_lang') || 'en';
+    toast.textContent = (TRANSLATIONS[lang]||TRANSLATIONS['en']).toastCopied;
+    toast.classList.add('show');
+    setTimeout(function() { toast.classList.remove('show'); }, 2000);
   });
 }
 function shareURL(url, name) {
@@ -1766,15 +1760,17 @@ function closeSettingsModal(e) {
 function saveSettings() {
   var type    = document.getElementById('bg-type').value;
   var enabled = document.getElementById('bg-enabled').checked;
+  var lang    = document.getElementById('lang-select').value;
   localStorage.setItem('cardzy_bg_type',    type);
   localStorage.setItem('cardzy_bg_enabled', enabled ? '1' : '0');
   BG.setType(type);
   BG.setEnabled(enabled);
+  setLanguage(lang);
   document.getElementById('settings-modal-overlay').classList.remove('open');
-  var t = document.getElementById('toast');
-  t.textContent = '✓ Configuración guardada';
-  t.classList.add('show');
-  setTimeout(function(){ t.classList.remove('show'); }, 2000);
+  var toast = document.getElementById('toast');
+  toast.textContent = (TRANSLATIONS[lang]||TRANSLATIONS['en']).toastSaved;
+  toast.classList.add('show');
+  setTimeout(function(){ toast.classList.remove('show'); }, 2000);
 }
 
 // ── RESTORE SAVED SETTINGS ON LOAD ──
@@ -1799,6 +1795,9 @@ function saveSettings() {
     var chk = document.getElementById('bg-enabled');
     if (sel) sel.value = t;
     if (chk) chk.checked = (e === null ? true : e === '1');
+    // Restore language
+    var lang = localStorage.getItem('cardzy_lang') || 'en';
+    setLanguage(lang);
   });
 })()
 
@@ -1827,10 +1826,11 @@ function saveProfile() {
 
   document.getElementById('profile-modal-overlay').classList.remove('open');
 
-  var t = document.getElementById('toast');
-  t.textContent = '✓ Perfil actualizado';
-  t.classList.add('show');
-  setTimeout(function(){ t.classList.remove('show'); }, 2000);
+  var toast = document.getElementById('toast');
+  var lang = localStorage.getItem('cardzy_lang') || 'en';
+  toast.textContent = (TRANSLATIONS[lang]||TRANSLATIONS['en']).toastProfile;
+  toast.classList.add('show');
+  setTimeout(function(){ toast.classList.remove('show'); }, 2000);
 }
 
 function toggleProfile() {
@@ -1898,10 +1898,11 @@ function createCard() {
   document.getElementById('f-color').selectedIndex = 0;
   document.getElementById('modal-overlay').classList.remove('open');
 
-  var t = document.getElementById('toast');
-  t.textContent = '✓ Card "' + name + '" creada';
-  t.classList.add('show');
-  setTimeout(function(){ t.classList.remove('show'); }, 2500);
+  var toast = document.getElementById('toast');
+  var lang = localStorage.getItem('cardzy_lang') || 'en';
+  toast.textContent = (TRANSLATIONS[lang]||TRANSLATIONS['en']).toastCard + ' "' + name + '"';
+  toast.classList.add('show');
+  setTimeout(function(){ toast.classList.remove('show'); }, 2500);
 }
 
 function filterCards(q) {
@@ -1982,6 +1983,117 @@ function exportCSV() {
 function toggleSidebar() {
   document.querySelector('.sidebar').classList.toggle('open');
   document.getElementById('sidebar-overlay').classList.toggle('open');
+}
+
+// ── i18n ──
+var TRANSLATIONS = {
+  en: {
+    main:'Main', myCards:'My Cards', analytics:'Analytics', contacts:'Contacts',
+    system:'System', integrations:'Integrations', settings:'Settings',
+    editProfile:'Edit Profile', upgradePlan:'Upgrade Plan', logOut:'Log Out',
+    topbarTitle:'My <span>Cards</span>', searchCards:'Search cards…', newCard:'New Card',
+    activeCards:'Active Cards', allLive:'All live', status:'Status', live:'Live',
+    customDomains:'Custom Domains', languages:'Languages',
+    allCards:'All Cards', sortDefault:'Default', viewCard:'View Card', createNewCard:'Create New Card',
+    periodSummary:'Period Summary', last7:'Last 7 days', last14:'Last 14 days', last30:'Last 30 days',
+    totalViews:'Total Views', capturedLeads:'Captured Leads', conversion:'Conversion',
+    vsPercent:'↑ 12% vs prev. period', vsLeads:'↑ 5 vs prev. period',
+    viewsVsLead:'Views → Lead',
+    viewsPerDay:'Views per day', allCombined:'All cards combined',
+    topCards:'Top Cards', byViews:'By number of views',
+    leadsPerCard:'Leads per card', formsCompleted:'Forms completed in period',
+    leadsDB:'Leads database', cardHosting:'Card hosting', leadNotif:'Lead notifications',
+    crmAuto:'CRM automations', autoEmail:'Auto email to leads', advMetrics:'Advanced metrics',
+    connected:'Connected', pending:'Pending',
+    allContacts:'All Contacts', searchContacts:'Search contacts…', exportCSV:'Export CSV',
+    thContact:'Contact', thPhone:'Phone', thCard:'Card', thDate:'Date',
+    notifications:'Notifications', newLeads:'New leads',
+    newLeadsHint:'Alert when someone fills the form',
+    cardViews:'Card views', cardViewsHint:'Weekly visit summary',
+    systemUpdates:'System updates', systemUpdatesHint:'New features and improvements',
+    appearance:'Appearance', language:'Language', bgAnimation:'Background animation',
+    animationType:'Animation type', privacy:'Privacy',
+    publicCards:'Public cards', publicCardsHint:'Anyone with the link can see your cards',
+    hideAnalytics:'Hide analytics', hideAnalyticsHint:"Don't share stats with third parties",
+    close:'Close', save:'Save',
+    editProfileTitle:'Edit <span>Profile</span>',
+    fullName:'Full Name', email:'Email', companyRole:'Company / Role', avatarInitials:'Avatar Initials',
+    cancel:'Cancel',
+    newCardTitle:'New <span>Card</span>', cardName:'Card Name', roleDesc:'Role / Description',
+    cardURL:'Card URL', ogURL:'OG Image URL (optional)', brandColor:'Brand color',
+    colorOrange:'Orange — Video / Studio', colorBlue:'Blue — Tech / AI',
+    colorGreen:'Green — Health / Wellness', colorPurple:'Purple — Events / Premium',
+    colorPink:'Pink — Lifestyle / Pets', colorGold:'Gold — Gastronomy',
+    createCard:'Create Card',
+    loginTitle:'RESTRICTED ACCESS', loginSub:'Private digital card management panel.',
+    username:'Username', password:'Password', usernamePh:'username',
+    loginError:'Incorrect username or password.', loginBtn:'Enter dashboard →',
+    toastCopied:'✓ Link copied!', toastSaved:'✓ Settings saved', toastProfile:'✓ Profile updated',
+    toastCard:'✓ Card created'
+  },
+  es: {
+    main:'Principal', myCards:'Mis Tarjetas', analytics:'Analíticas', contacts:'Contactos',
+    system:'Sistema', integrations:'Integraciones', settings:'Configuración',
+    editProfile:'Editar Perfil', upgradePlan:'Mejorar Plan', logOut:'Cerrar Sesión',
+    topbarTitle:'Mis <span>Tarjetas</span>', searchCards:'Buscar tarjetas…', newCard:'Nueva Tarjeta',
+    activeCards:'Tarjetas Activas', allLive:'Todas activas', status:'Estado', live:'Activo',
+    customDomains:'Dominios Propios', languages:'Idiomas',
+    allCards:'Todas las Tarjetas', sortDefault:'Por defecto', viewCard:'Ver Tarjeta', createNewCard:'Crear Nueva Tarjeta',
+    periodSummary:'Resumen del período', last7:'Últimos 7 días', last14:'Últimos 14 días', last30:'Últimos 30 días',
+    totalViews:'Total Vistas', capturedLeads:'Leads Capturados', conversion:'Conversión',
+    vsPercent:'↑ 12% vs período anterior', vsLeads:'↑ 5 vs período anterior',
+    viewsVsLead:'Vistas → Lead',
+    viewsPerDay:'Vistas por día', allCombined:'Todas las cards combinadas',
+    topCards:'Top Cards', byViews:'Por número de vistas',
+    leadsPerCard:'Leads por card', formsCompleted:'Formularios completados en el período',
+    leadsDB:'Base de datos de leads', cardHosting:'Hosting de tarjetas', leadNotif:'Notificaciones de leads',
+    crmAuto:'Automatizaciones de CRM', autoEmail:'Email automático a leads', advMetrics:'Métricas avanzadas',
+    connected:'Conectado', pending:'Pendiente',
+    allContacts:'Todos los contactos', searchContacts:'Buscar contactos…', exportCSV:'Exportar CSV',
+    thContact:'Contacto', thPhone:'Teléfono', thCard:'Tarjeta', thDate:'Fecha',
+    notifications:'Notificaciones', newLeads:'Nuevos leads',
+    newLeadsHint:'Alerta cuando alguien completa el formulario',
+    cardViews:'Vistas de tarjeta', cardViewsHint:'Resumen semanal de visitas',
+    systemUpdates:'Actualizaciones del sistema', systemUpdatesHint:'Nuevas funciones y mejoras',
+    appearance:'Apariencia', language:'Idioma', bgAnimation:'Animación de fondo',
+    animationType:'Tipo de animación', privacy:'Privacidad',
+    publicCards:'Cards públicas', publicCardsHint:'Cualquiera con el link puede ver tus cards',
+    hideAnalytics:'Ocultar analytics', hideAnalyticsHint:'No compartir estadísticas con terceros',
+    close:'Cerrar', save:'Guardar',
+    editProfileTitle:'Editar <span>Perfil</span>',
+    fullName:'Nombre completo', email:'Correo electrónico', companyRole:'Empresa / Rol', avatarInitials:'Iniciales del avatar',
+    cancel:'Cancelar',
+    newCardTitle:'Nueva <span>Tarjeta</span>', cardName:'Nombre de tarjeta', roleDesc:'Rol / Descripción',
+    cardURL:'URL de la tarjeta', ogURL:'URL imagen OG (opcional)', brandColor:'Color de marca',
+    colorOrange:'Naranja — Video / Studio', colorBlue:'Azul — Tech / AI',
+    colorGreen:'Verde — Salud / Bienestar', colorPurple:'Violeta — Eventos / Premium',
+    colorPink:'Rosa — Lifestyle / Pets', colorGold:'Dorado — Gastronomía',
+    createCard:'Crear Tarjeta',
+    loginTitle:'ACCESO RESTRINGIDO', loginSub:'Panel privado de gestión de tarjetas digitales.',
+    username:'Usuario', password:'Contraseña', usernamePh:'usuario',
+    loginError:'Usuario o contraseña incorrectos.', loginBtn:'Ingresar al panel →',
+    toastCopied:'✓ ¡Link copiado!', toastSaved:'✓ Configuración guardada', toastProfile:'✓ Perfil actualizado',
+    toastCard:'✓ Tarjeta creada'
+  }
+};
+
+function setLanguage(lang) {
+  var t = TRANSLATIONS[lang] || TRANSLATIONS['en'];
+  localStorage.setItem('cardzy_lang', lang);
+  document.querySelectorAll('[data-i18n]').forEach(function(el) {
+    var k = el.getAttribute('data-i18n');
+    if (t[k] !== undefined) el.textContent = t[k];
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach(function(el) {
+    var k = el.getAttribute('data-i18n-html');
+    if (t[k] !== undefined) el.innerHTML = t[k];
+  });
+  document.querySelectorAll('[data-i18n-ph]').forEach(function(el) {
+    var k = el.getAttribute('data-i18n-ph');
+    if (t[k] !== undefined) el.placeholder = t[k];
+  });
+  var sel = document.getElementById('lang-select');
+  if (sel) sel.value = lang;
 }
 
 // ── LOGIN LOGIC ──

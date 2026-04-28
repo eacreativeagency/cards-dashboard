@@ -183,8 +183,10 @@
     .user-role { font-size: 11px; color: var(--muted); margin-top: 1px; }
 
     .profile-menu {
-      position: absolute; bottom: 90px; left: 16px;
+      position: fixed; bottom: 70px; left: 16px;
       width: 228px;
+      max-height: min(360px, calc(100svh - 90px));
+      overflow-y: auto;
       background: #161616;
       border: 1px solid var(--border2);
       border-radius: 14px;
@@ -193,7 +195,7 @@
       opacity: 0; pointer-events: none;
       transform: translateY(8px);
       transition: opacity .2s, transform .2s;
-      z-index: 20;
+      z-index: 200;
     }
     .profile-menu.open { opacity: 1; pointer-events: all; transform: translateY(0); }
 
@@ -606,6 +608,55 @@
     .toggle-btn.active { background: var(--surface2); color: var(--text); }
     .toggle-btn svg { width: 14px; height: 14px; }
 
+    /* ── ANIMATION FLOAT ── */
+    .anim-float {
+      position: fixed; bottom: 22px; right: 22px;
+      display: flex; align-items: center; gap: 6px;
+      background: rgba(16,16,16,0.88);
+      border: 1px solid var(--border2);
+      border-radius: 100px;
+      padding: 6px 10px;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.45);
+      z-index: 50;
+      transition: opacity .2s;
+    }
+    [data-theme="light"] .anim-float {
+      background: rgba(255,255,255,0.90);
+      border-color: rgba(0,0,0,0.10);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+    }
+    .anim-btn {
+      width: 30px; height: 30px; border-radius: 50%;
+      border: 1.5px solid transparent;
+      background: transparent;
+      display: grid; place-items: center;
+      cursor: pointer; font-size: 14px;
+      color: var(--muted); transition: all .18s;
+    }
+    .anim-btn:hover { background: var(--surface2); color: var(--text); }
+    .anim-btn.active {
+      border-color: var(--orange);
+      background: rgba(255,122,59,.12);
+      color: var(--orange);
+    }
+    .anim-divider {
+      width: 1px; height: 18px;
+      background: var(--border);
+      flex-shrink: 0;
+    }
+    .anim-power {
+      width: 30px; height: 30px; border-radius: 50%;
+      border: 1.5px solid var(--border);
+      background: transparent;
+      display: grid; place-items: center;
+      cursor: pointer; font-size: 13px;
+      color: var(--muted); transition: all .18s;
+    }
+    .anim-power:hover { border-color: var(--orange); color: var(--orange); }
+    .anim-power.on { border-color: rgba(255,122,59,.5); color: var(--orange); }
+
     /* ── HAMBURGER ── */
     .hamburger {
       display: none; width: 36px; height: 36px; border-radius: 8px;
@@ -894,7 +945,10 @@
       .stats { grid-template-columns: 1fr 1fr; }
       .integrations-grid { grid-template-columns: 1fr; }
       .analytics-grid2 { grid-template-columns: 1fr; }
-      .topbar-right { display: none !important; }
+      .topbar-right { display: flex !important; gap: 6px; }
+      .search-box { display: none !important; }
+      .topbar-right .btn-primary span { display: none; }
+      .topbar-right .btn-primary { padding: 0 10px; gap: 0; }
       .contacts-table-wrap { overflow-x: auto; }
       .section-head { flex-wrap: wrap; gap: 10px; }
       .chart-box { padding: 16px; }
@@ -938,6 +992,16 @@
 
 <div id="particles"></div>
 <div class="sidebar-overlay" id="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+<!-- Floating animation picker -->
+<div class="anim-float" id="anim-float">
+  <button class="anim-btn" id="anim-embers"       title="Embers"       onclick="setAnimType('embers')">🔥</button>
+  <button class="anim-btn" id="anim-particles"    title="Particles"    onclick="setAnimType('particles')">✦</button>
+  <button class="anim-btn" id="anim-stars"        title="Stars"        onclick="setAnimType('stars')">🌟</button>
+  <button class="anim-btn" id="anim-searchlights" title="Searchlights" onclick="setAnimType('searchlights')">💡</button>
+  <div class="anim-divider"></div>
+  <button class="anim-power" id="anim-power" title="Toggle animation" onclick="setAnimEnabled(!animEnabled)">⏻</button>
+</div>
 
 <!-- SIDEBAR -->
 <aside class="sidebar">
@@ -1862,17 +1926,54 @@ function saveSettings() {
   window.addEventListener('load', function() {
     var t = localStorage.getItem('cardzy_bg_type')    || 'searchlights';
     var e = localStorage.getItem('cardzy_bg_enabled');
+    var eOn = (e === null ? true : e === '1');
     BG.setType(t);
-    BG.setEnabled(e === null ? true : e === '1');
+    BG.setEnabled(eOn);
     var sel = document.getElementById('bg-type');
     var chk = document.getElementById('bg-enabled');
     if (sel) sel.value = t;
-    if (chk) chk.checked = (e === null ? true : e === '1');
+    if (chk) chk.checked = eOn;
+    syncAnimFloat(t, eOn);
     // Restore language
     var lang = localStorage.getItem('cardzy_lang') || 'en';
     setLanguage(lang);
   });
 })()
+
+// ── ANIM FLOAT CONTROLS ──
+var animEnabled = true;
+function setAnimType(type) {
+  localStorage.setItem('cardzy_bg_type', type);
+  BG.setType(type);
+  // sync Settings select
+  var sel = document.getElementById('bg-type');
+  if (sel) sel.value = type;
+  // update float buttons
+  ['embers','particles','stars','searchlights'].forEach(function(t) {
+    var b = document.getElementById('anim-' + t);
+    if (b) b.classList.toggle('active', t === type);
+  });
+}
+function setAnimEnabled(on) {
+  animEnabled = !!on;
+  localStorage.setItem('cardzy_bg_enabled', on ? '1' : '0');
+  BG.setEnabled(on);
+  // sync Settings checkbox
+  var chk = document.getElementById('bg-enabled');
+  if (chk) chk.checked = on;
+  // update power button
+  var pw = document.getElementById('anim-power');
+  if (pw) pw.classList.toggle('on', on);
+}
+function syncAnimFloat(type, enabled) {
+  ['embers','particles','stars','searchlights'].forEach(function(t) {
+    var b = document.getElementById('anim-' + t);
+    if (b) b.classList.toggle('active', t === type);
+  });
+  var pw = document.getElementById('anim-power');
+  if (pw) pw.classList.toggle('on', enabled);
+  animEnabled = enabled;
+}
 
 function openProfileModal() {
   document.getElementById('profile-menu').classList.remove('open');

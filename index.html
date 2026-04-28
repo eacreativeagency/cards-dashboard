@@ -611,21 +611,40 @@
     /* ── ANIMATION FLOAT ── */
     .anim-float {
       position: fixed; bottom: 22px; right: 22px;
-      display: flex; align-items: center; gap: 6px;
+      display: flex; align-items: center;
       background: rgba(16,16,16,0.88);
       border: 1px solid var(--border2);
       border-radius: 100px;
-      padding: 6px 10px;
+      padding: 5px 5px;
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       box-shadow: 0 8px 32px rgba(0,0,0,0.45);
       z-index: 50;
-      transition: opacity .2s;
+      transition: padding .3s ease;
     }
     [data-theme="light"] .anim-float {
       background: rgba(255,255,255,0.90);
       border-color: rgba(0,0,0,0.10);
       box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+    }
+    /* Trigger: always visible */
+    .anim-trigger {
+      width: 30px; height: 30px; border-radius: 50%;
+      border: none; background: transparent;
+      display: grid; place-items: center;
+      cursor: pointer; font-size: 15px;
+      flex-shrink: 0; transition: transform .2s;
+    }
+    .anim-float.open .anim-trigger { transform: rotate(20deg); }
+    /* Expandable inner panel */
+    .anim-inner {
+      display: flex; align-items: center; gap: 4px;
+      max-width: 0; overflow: hidden; opacity: 0;
+      transition: max-width .3s ease, opacity .2s ease, padding-left .3s ease;
+      padding-left: 0;
+    }
+    .anim-float.open .anim-inner {
+      max-width: 220px; opacity: 1; padding-left: 4px;
     }
     .anim-btn {
       width: 30px; height: 30px; border-radius: 50%;
@@ -634,6 +653,7 @@
       display: grid; place-items: center;
       cursor: pointer; font-size: 14px;
       color: var(--muted); transition: all .18s;
+      flex-shrink: 0;
     }
     .anim-btn:hover { background: var(--surface2); color: var(--text); }
     .anim-btn.active {
@@ -653,6 +673,7 @@
       display: grid; place-items: center;
       cursor: pointer; font-size: 13px;
       color: var(--muted); transition: all .18s;
+      flex-shrink: 0;
     }
     .anim-power:hover { border-color: var(--orange); color: var(--orange); }
     .anim-power.on { border-color: rgba(255,122,59,.5); color: var(--orange); }
@@ -946,9 +967,13 @@
       .integrations-grid { grid-template-columns: 1fr; }
       .analytics-grid2 { grid-template-columns: 1fr; }
       .topbar-right { display: flex !important; gap: 6px; }
-      .search-box { display: none !important; }
+      .search-box { padding: 7px 10px; }
+      .search-box input { width: 80px; font-size: 12px; }
       .topbar-right .btn-primary span { display: none; }
-      .topbar-right .btn-primary { padding: 0 10px; gap: 0; }
+      .topbar-right .btn-primary {
+        width: 34px; height: 34px; border-radius: 10px;
+        padding: 0; gap: 0; flex-shrink: 0;
+      }
       .contacts-table-wrap { overflow-x: auto; }
       .section-head { flex-wrap: wrap; gap: 10px; }
       .chart-box { padding: 16px; }
@@ -995,12 +1020,17 @@
 
 <!-- Floating animation picker -->
 <div class="anim-float" id="anim-float">
-  <button class="anim-btn" id="anim-embers"       title="Embers"       onclick="setAnimType('embers')">🔥</button>
-  <button class="anim-btn" id="anim-particles"    title="Particles"    onclick="setAnimType('particles')">✦</button>
-  <button class="anim-btn" id="anim-stars"        title="Stars"        onclick="setAnimType('stars')">🌟</button>
-  <button class="anim-btn" id="anim-searchlights" title="Searchlights" onclick="setAnimType('searchlights')">💡</button>
-  <div class="anim-divider"></div>
-  <button class="anim-power" id="anim-power" title="Toggle animation" onclick="setAnimEnabled(!animEnabled)">⏻</button>
+  <button class="anim-trigger" id="anim-trigger" onclick="toggleAnimFloat()" title="Animations">
+    <span id="anim-current-icon">🌟</span>
+  </button>
+  <div class="anim-inner" id="anim-inner">
+    <button class="anim-btn" id="anim-embers"       title="Embers"       onclick="setAnimType('embers')">🔥</button>
+    <button class="anim-btn" id="anim-particles"    title="Particles"    onclick="setAnimType('particles')">✦</button>
+    <button class="anim-btn" id="anim-stars"        title="Stars"        onclick="setAnimType('stars')">🌟</button>
+    <button class="anim-btn" id="anim-searchlights" title="Searchlights" onclick="setAnimType('searchlights')">💡</button>
+    <div class="anim-divider"></div>
+    <button class="anim-power" id="anim-power" title="Toggle animation" onclick="setAnimEnabled(!animEnabled)">⏻</button>
+  </div>
 </div>
 
 <!-- SIDEBAR -->
@@ -1942,30 +1972,48 @@ function saveSettings() {
 
 // ── ANIM FLOAT CONTROLS ──
 var animEnabled = true;
+var animFloatTimer = null;
+var ANIM_ICONS = { embers:'🔥', particles:'✦', stars:'🌟', searchlights:'💡' };
+
+function toggleAnimFloat() {
+  var el = document.getElementById('anim-float');
+  if (!el) return;
+  el.classList.toggle('open');
+  clearTimeout(animFloatTimer);
+  if (el.classList.contains('open')) {
+    animFloatTimer = setTimeout(function(){ el.classList.remove('open'); }, 4000);
+  }
+}
 function setAnimType(type) {
   localStorage.setItem('cardzy_bg_type', type);
   BG.setType(type);
-  // sync Settings select
   var sel = document.getElementById('bg-type');
   if (sel) sel.value = type;
-  // update float buttons
+  var icon = document.getElementById('anim-current-icon');
+  if (icon) icon.textContent = ANIM_ICONS[type] || '🌟';
   ['embers','particles','stars','searchlights'].forEach(function(t) {
     var b = document.getElementById('anim-' + t);
     if (b) b.classList.toggle('active', t === type);
   });
+  // auto-close after pick
+  clearTimeout(animFloatTimer);
+  animFloatTimer = setTimeout(function(){
+    var el = document.getElementById('anim-float');
+    if (el) el.classList.remove('open');
+  }, 1200);
 }
 function setAnimEnabled(on) {
   animEnabled = !!on;
   localStorage.setItem('cardzy_bg_enabled', on ? '1' : '0');
   BG.setEnabled(on);
-  // sync Settings checkbox
   var chk = document.getElementById('bg-enabled');
   if (chk) chk.checked = on;
-  // update power button
   var pw = document.getElementById('anim-power');
   if (pw) pw.classList.toggle('on', on);
 }
 function syncAnimFloat(type, enabled) {
+  var icon = document.getElementById('anim-current-icon');
+  if (icon) icon.textContent = ANIM_ICONS[type] || '🌟';
   ['embers','particles','stars','searchlights'].forEach(function(t) {
     var b = document.getElementById('anim-' + t);
     if (b) b.classList.toggle('active', t === type);
@@ -1974,6 +2022,14 @@ function syncAnimFloat(type, enabled) {
   if (pw) pw.classList.toggle('on', enabled);
   animEnabled = enabled;
 }
+// close float on outside click
+document.addEventListener('click', function(e) {
+  var fl = document.getElementById('anim-float');
+  if (fl && fl.classList.contains('open') && !fl.contains(e.target)) {
+    fl.classList.remove('open');
+    clearTimeout(animFloatTimer);
+  }
+});
 
 function openProfileModal() {
   document.getElementById('profile-menu').classList.remove('open');

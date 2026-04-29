@@ -955,8 +955,7 @@
       .integrations-grid { grid-template-columns: 1fr 1fr; }
       .analytics-grid { grid-template-columns: 1fr; }
       .analytics-grid2 { grid-template-columns: 1fr 1fr; }
-      /* ocultar view-toggle en tablet/móvil — evita que parezca hamburguesa doble */
-      .view-toggle { display: none; }
+      /* view-toggle visible en tablet/móvil */
     }
     @media (max-width: 600px) {
       .main { padding: 0 14px 40px; }
@@ -1022,7 +1021,7 @@
 <!-- Floating animation picker -->
 <div class="anim-float" id="anim-float">
   <button class="anim-trigger" id="anim-trigger" onclick="toggleAnimFloat()" title="Animations">
-    <span id="anim-current-icon">🌟</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15"><path d="M12 2L9.5 9.5 2 12l7.5 2.5L12 22l2.5-7.5L22 12l-7.5-2.5z"/></svg>
   </button>
   <div class="anim-inner" id="anim-inner">
     <button class="anim-btn" id="anim-embers"       title="Embers"       onclick="setAnimType('embers')">🔥</button>

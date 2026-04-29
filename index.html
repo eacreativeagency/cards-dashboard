@@ -1025,7 +1025,7 @@
   </button>
   <div class="anim-inner" id="anim-inner">
     <button class="anim-btn" id="anim-embers"       title="Embers"       onclick="setAnimType('embers')">🔥</button>
-    <button class="anim-btn" id="anim-particles"    title="Particles"    onclick="setAnimType('particles')">✦</button>
+    <button class="anim-btn" id="anim-network"      title="Particle Network" onclick="setAnimType('network')">🕸️</button>
     <button class="anim-btn" id="anim-stars"        title="Stars"        onclick="setAnimType('stars')">🌟</button>
     <button class="anim-btn" id="anim-searchlights" title="Searchlights" onclick="setAnimType('searchlights')">💡</button>
     <div class="anim-divider"></div>
@@ -2006,7 +2006,7 @@ function saveSettings() {
 // ── ANIM FLOAT CONTROLS ──
 var animEnabled = true;
 var animFloatTimer = null;
-var ANIM_ICONS = { embers:'🔥', particles:'✦', stars:'🌟', searchlights:'💡' };
+var ANIM_ICONS = { embers:'🔥', network:'🕸️', stars:'🌟', searchlights:'💡' };
 
 function toggleAnimFloat() {
   var el = document.getElementById('anim-float');
@@ -2024,7 +2024,7 @@ function setAnimType(type) {
   if (sel) sel.value = type;
   var icon = document.getElementById('anim-current-icon');
   if (icon) icon.textContent = ANIM_ICONS[type] || '🌟';
-  ['embers','particles','stars','searchlights'].forEach(function(t) {
+  ['embers','network','stars','searchlights'].forEach(function(t) {
     var b = document.getElementById('anim-' + t);
     if (b) b.classList.toggle('active', t === type);
   });
@@ -2047,7 +2047,7 @@ function setAnimEnabled(on) {
 function syncAnimFloat(type, enabled) {
   var icon = document.getElementById('anim-current-icon');
   if (icon) icon.textContent = ANIM_ICONS[type] || '🌟';
-  ['embers','particles','stars','searchlights'].forEach(function(t) {
+  ['embers','network','stars','searchlights'].forEach(function(t) {
     var b = document.getElementById('anim-' + t);
     if (b) b.classList.toggle('active', t === type);
   });
@@ -2603,7 +2603,7 @@ var BG = (function() {
     else if(current==='stars') { initStars(); loopStars(); }
   }
 
-  start('particles');
+  start('stars');
 
   return {
     setType: function(t) { start(t); },

@@ -978,6 +978,7 @@
       .contacts-table-wrap { overflow-x: auto; }
       .section-head { flex-wrap: wrap; gap: 10px; }
       .chart-box { padding: 16px; }
+    }
 
     /* ── OWNER FILTER ── */
     .owner-filter {
@@ -1033,6 +1034,18 @@
       color: var(--orange);
     }
     [data-theme="light"] .owner-count { background: rgba(0,0,0,0.06); }
+
+    /* ── CARD OWNER AVATAR (top-left badge) ── */
+    .card-owner-av {
+      position: absolute; top: 10px; left: 10px; z-index: 3;
+      width: 26px; height: 26px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px; font-weight: 800; color: #fff;
+      font-family: 'Space Grotesk', sans-serif;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.35);
+      border: 1.5px solid rgba(255,255,255,0.25);
+      letter-spacing: -0.3px;
+    }
 
     }
   </style>
@@ -1292,6 +1305,7 @@
     <!-- EA Creative Studio -->
     <div class="card" data-owner="johan">
       <div class="thumb-wrap">
+        <div class="card-owner-av" style="background:linear-gradient(135deg,#3b82f6,#1d4ed8)">J</div>
         <img class="card-thumb" src="https://framerusercontent.com/assets/wIl1P7FfmSglt9U8OSBU9jtLNbY.jpg" alt="Studio" onerror="this.style.display='none'">
         <div class="live-badge"><span class="live-dot"></span>LIVE</div>
       </div>
@@ -1325,6 +1339,7 @@
     <!-- EA Creative Agency -->
     <div class="card" data-owner="johan">
       <div class="thumb-wrap">
+        <div class="card-owner-av" style="background:linear-gradient(135deg,#3b82f6,#1d4ed8)">J</div>
         <img class="card-thumb" src="https://cards-dashboard.pages.dev/EA.jpg" onerror="this.style.display='none'" style="object-position:center center">
         <div class="live-badge"><span class="live-dot"></span>LIVE</div>
       </div>
@@ -1358,6 +1373,7 @@
     <!-- bySophia AI -->
     <div class="card" data-owner="johan">
       <div class="thumb-wrap">
+        <div class="card-owner-av" style="background:linear-gradient(135deg,#3b82f6,#1d4ed8)">J</div>
         <img class="card-thumb" src="https://sophiavoiceai.com/og-image.jpg" alt="Sophia" onerror="this.style.display='none'">
         <div class="live-badge"><span class="live-dot"></span>LIVE</div>
       </div>
@@ -1391,6 +1407,7 @@
     <!-- Ana Alvarado · Dog Sitter -->
     <div class="card" data-owner="johan">
       <div class="thumb-wrap">
+        <div class="card-owner-av" style="background:linear-gradient(135deg,#3b82f6,#1d4ed8)">J</div>
         <div class="thumb-gradient" style="background:linear-gradient(135deg,#04060d,#0d1224,#1d4ed8)">
           <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:36px;height:36px;opacity:0.7">
             <path d="M11 5L6 9H2V15H6L11 19V5Z" stroke="#93c5fd" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="rgba(59,130,246,0.2)"/>
@@ -1429,6 +1446,7 @@
 
     <div class="card" data-owner="ana">
       <div class="thumb-wrap">
+        <div class="card-owner-av" style="background:linear-gradient(135deg,#C4698E,#a84e72)">A</div>
         <img class="card-thumb" src="https://ana-rover-card.pages.dev/ana.webp" alt="Ana Alvarado" style="object-position:center top;" onerror="this.style.display='none'">
         <div class="live-badge"><span class="live-dot"></span>LIVE</div>
       </div>
@@ -1462,6 +1480,7 @@
     <!-- Puppies Life Miami -->
     <div class="card" data-owner="ana">
       <div class="thumb-wrap">
+        <div class="card-owner-av" style="background:linear-gradient(135deg,#C4698E,#a84e72)">A</div>
         <img class="card-thumb" src="https://puppieslife-card.pages.dev/dogs.avif" alt="Puppies Life Miami" style="object-position:center center;" onerror="this.style.display='none'">
         <div class="live-badge"><span class="live-dot"></span>LIVE</div>
       </div>
@@ -1497,7 +1516,8 @@
     <!-- Ana Agency -->
     <div class="card" data-owner="ana">
       <div class="thumb-wrap">
-        <div class="thumb-gradient" style="background:linear-gradient(135deg,#0b0612,#1a0a2e,#2d1b69)">Ana · Agency</div>
+        <div class="card-owner-av" style="background:linear-gradient(135deg,#C4698E,#a84e72)">A</div>
+        <div class="thumb-gradient" style="background:linear-gradient(135deg,#0b0612,#1a0a2e,#2d1b69);display:flex;align-items:center;justify-content:center;"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" style="width:42px;height:42px"><path d="M20 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
         <div class="live-badge"><span class="live-dot"></span>LIVE</div>
       </div>
       <div class="card-body">
@@ -1508,11 +1528,16 @@
             <div class="card-sub">Creative Partner</div>
           </div>
         </div>
-        <div class="card-url">🌐 ana-agency-card.pages.dev</div>
+        <div class="card-url"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10z"/></svg>ana-agency-card.pages.dev</div>
         <div class="card-actions">
-          <a class="btn-view" href="https://ana-agency-card.pages.dev" target="_blank">View Card</a>
-          <button class="btn-sq" onclick="copyURL('https://ana-agency-card.pages.dev')">📋</button>
-          <button class="btn-sq" onclick="shareURL('https://ana-agency-card.pages.dev','Ana Agency')">📤</button>
+          <a class="btn-view" href="https://ana-agency-card.pages.dev" target="_blank" style="background:linear-gradient(135deg,#ff7a3b,#e05e1e)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg><span data-i18n="viewCard">View Card</span></a>
+          <button class="btn-sq" onclick="copyURL('https://ana-agency-card.pages.dev')" title="Copy link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </button>
+          <button class="btn-sq" onclick="shareURL('https://ana-agency-card.pages.dev','Ana Agency')" title="Share">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12v7a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7M16 6l-4-4-4 4M12 2v13"/></svg>
+          </button>
         </div>
       </div>
     </div>
@@ -1520,7 +1545,8 @@
     <!-- Ana Studio -->
     <div class="card" data-owner="ana">
       <div class="thumb-wrap">
-        <div class="thumb-gradient" style="background:linear-gradient(135deg,#0a0a14,#14142a,#1e1e4a)">Ana · Studio</div>
+        <div class="card-owner-av" style="background:linear-gradient(135deg,#C4698E,#a84e72)">A</div>
+        <div class="thumb-gradient" style="background:linear-gradient(135deg,#0a0a14,#14142a,#1e1e4a);display:flex;align-items:center;justify-content:center;"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" style="width:42px;height:42px"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg></div>
         <div class="live-badge"><span class="live-dot"></span>LIVE</div>
       </div>
       <div class="card-body">
@@ -1531,11 +1557,16 @@
             <div class="card-sub">Creative Producer</div>
           </div>
         </div>
-        <div class="card-url">🌐 ana-studio-card.pages.dev</div>
+        <div class="card-url"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10z"/></svg>ana-studio-card.pages.dev</div>
         <div class="card-actions">
-          <a class="btn-view" href="https://ana-studio-card.pages.dev" target="_blank">View Card</a>
-          <button class="btn-sq" onclick="copyURL('https://ana-studio-card.pages.dev')">📋</button>
-          <button class="btn-sq" onclick="shareURL('https://ana-studio-card.pages.dev','Ana Studio')">📤</button>
+          <a class="btn-view" href="https://ana-studio-card.pages.dev" target="_blank" style="background:linear-gradient(135deg,#ff7a3b,#e05e1e)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg><span data-i18n="viewCard">View Card</span></a>
+          <button class="btn-sq" onclick="copyURL('https://ana-studio-card.pages.dev')" title="Copy link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </button>
+          <button class="btn-sq" onclick="shareURL('https://ana-studio-card.pages.dev','Ana Studio')" title="Share">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12v7a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7M16 6l-4-4-4 4M12 2v13"/></svg>
+          </button>
         </div>
       </div>
     </div>
@@ -1543,7 +1574,8 @@
     <!-- Ana Audio -->
     <div class="card" data-owner="ana">
       <div class="thumb-wrap">
-        <div class="thumb-gradient" style="background:linear-gradient(135deg,#04060d,#0d1224,#1d4ed8)">Ana · Audio</div>
+        <div class="card-owner-av" style="background:linear-gradient(135deg,#C4698E,#a84e72)">A</div>
+        <div class="thumb-gradient" style="background:linear-gradient(135deg,#04060d,#0d1224,#1d4ed8);display:flex;align-items:center;justify-content:center;"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(147,197,253,0.6)" stroke-width="1.5" style="width:42px;height:42px"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div>
         <div class="live-badge"><span class="live-dot"></span>LIVE</div>
       </div>
       <div class="card-body">
@@ -1554,11 +1586,16 @@
             <div class="card-sub">Event Coordinator</div>
           </div>
         </div>
-        <div class="card-url">🌐 ana-audio-card.pages.dev</div>
+        <div class="card-url"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10z"/></svg>ana-audio-card.pages.dev</div>
         <div class="card-actions">
-          <a class="btn-view" href="https://ana-audio-card.pages.dev" target="_blank">View Card</a>
-          <button class="btn-sq" onclick="copyURL('https://ana-audio-card.pages.dev')">📋</button>
-          <button class="btn-sq" onclick="shareURL('https://ana-audio-card.pages.dev','Ana Audio')">📤</button>
+          <a class="btn-view" href="https://ana-audio-card.pages.dev" target="_blank" style="background:linear-gradient(135deg,#ff7a3b,#e05e1e)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg><span data-i18n="viewCard">View Card</span></a>
+          <button class="btn-sq" onclick="copyURL('https://ana-audio-card.pages.dev')" title="Copy link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </button>
+          <button class="btn-sq" onclick="shareURL('https://ana-audio-card.pages.dev','Ana Audio')" title="Share">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12v7a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7M16 6l-4-4-4 4M12 2v13"/></svg>
+          </button>
         </div>
       </div>
     </div>
@@ -1566,7 +1603,8 @@
     <!-- Ana bySophia -->
     <div class="card" data-owner="ana">
       <div class="thumb-wrap">
-        <div class="thumb-gradient" style="background:linear-gradient(135deg,#0a0608,#1a0a10,#2d1020)">Ana · Sophia</div>
+        <div class="card-owner-av" style="background:linear-gradient(135deg,#C4698E,#a84e72)">A</div>
+        <div class="thumb-gradient" style="background:linear-gradient(135deg,#0a0608,#1a0a10,#2d1020);display:flex;align-items:center;justify-content:center;"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" style="width:42px;height:42px"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg></div>
         <div class="live-badge"><span class="live-dot"></span>LIVE</div>
       </div>
       <div class="card-body">
@@ -1577,11 +1615,16 @@
             <div class="card-sub">AI Operations Manager</div>
           </div>
         </div>
-        <div class="card-url">🌐 ana-sophia-card.pages.dev</div>
+        <div class="card-url"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10z"/></svg>ana-sophia-card.pages.dev</div>
         <div class="card-actions">
-          <a class="btn-view" href="https://ana-sophia-card.pages.dev" target="_blank">View Card</a>
-          <button class="btn-sq" onclick="copyURL('https://ana-sophia-card.pages.dev')">📋</button>
-          <button class="btn-sq" onclick="shareURL('https://ana-sophia-card.pages.dev','Ana Sophia')">📤</button>
+          <a class="btn-view" href="https://ana-sophia-card.pages.dev" target="_blank" style="background:linear-gradient(135deg,#ff7a3b,#e05e1e)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg><span data-i18n="viewCard">View Card</span></a>
+          <button class="btn-sq" onclick="copyURL('https://ana-sophia-card.pages.dev')" title="Copy link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </button>
+          <button class="btn-sq" onclick="shareURL('https://ana-sophia-card.pages.dev','Ana Sophia')" title="Share">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12v7a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7M16 6l-4-4-4 4M12 2v13"/></svg>
+          </button>
         </div>
       </div>
     </div>

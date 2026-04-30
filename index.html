@@ -1158,7 +1158,7 @@
         </div>
         <span class="stat-change" style="background:rgba(34,197,94,0.12);color:#22c55e">+1 new</span>
       </div>
-      <div class="stat-val">6</div>
+      <div class="stat-val">10</div>
       <div class="stat-label" data-i18n="activeCards">Active Cards</div>
     </div>
     <div class="stat">
@@ -1194,7 +1194,14 @@
 
   <!-- Cards Section -->
   <div class="section-head">
-    <div class="section-title" data-i18n="allCards">All Cards</div>
+    <div style="display:flex;align-items:center;gap:12px;">
+      <div class="section-title" data-i18n="allCards">All Cards</div>
+      <div class="owner-filter">
+        <button class="owner-btn all active" onclick="filterOwner('all',this)"><span class="owner-dot"></span>All</button>
+        <button class="owner-btn johan" onclick="filterOwner('johan',this)"><span class="owner-dot"></span>Johan</button>
+        <button class="owner-btn ana" onclick="filterOwner('ana',this)"><span class="owner-dot"></span>Ana</button>
+      </div>
+    </div>
     <div style="display:flex;align-items:center;gap:10px;">
       <select class="settings-select" onchange="sortCards(this.value)" style="font-size:12px;">
         <option value="default" data-i18n="sortDefault">Default</option>
@@ -1215,7 +1222,7 @@
   <div class="cards-grid">
 
     <!-- EA Creative Studio -->
-    <div class="card">
+    <div class="card" data-owner="johan">
       <div class="thumb-wrap">
         <img class="card-thumb" src="https://framerusercontent.com/assets/wIl1P7FfmSglt9U8OSBU9jtLNbY.jpg" alt="Studio" onerror="this.style.display='none'">
         <div class="live-badge"><span class="live-dot"></span>LIVE</div>
@@ -1248,7 +1255,7 @@
     </div>
 
     <!-- EA Creative Agency -->
-    <div class="card">
+    <div class="card" data-owner="johan">
       <div class="thumb-wrap">
         <img class="card-thumb" src="https://cards-dashboard.pages.dev/EA.jpg" onerror="this.style.display='none'" style="object-position:center center">
         <div class="live-badge"><span class="live-dot"></span>LIVE</div>
@@ -1281,7 +1288,7 @@
     </div>
 
     <!-- bySophia AI -->
-    <div class="card">
+    <div class="card" data-owner="johan">
       <div class="thumb-wrap">
         <img class="card-thumb" src="https://sophiavoiceai.com/og-image.jpg" alt="Sophia" onerror="this.style.display='none'">
         <div class="live-badge"><span class="live-dot"></span>LIVE</div>
@@ -1314,7 +1321,7 @@
     </div>
 
     <!-- Ana Alvarado · Dog Sitter -->
-    <div class="card">
+    <div class="card" data-owner="johan">
       <div class="thumb-wrap">
         <div class="thumb-gradient" style="background:linear-gradient(135deg,#04060d,#0d1224,#1d4ed8)">
           <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:36px;height:36px;opacity:0.7">
@@ -1352,7 +1359,7 @@
       </div>
     </div>
 
-    <div class="card">
+    <div class="card" data-owner="ana">
       <div class="thumb-wrap">
         <img class="card-thumb" src="https://ana-rover-card.pages.dev/ana.webp" alt="Ana Alvarado" style="object-position:center top;" onerror="this.style.display='none'">
         <div class="live-badge"><span class="live-dot"></span>LIVE</div>
@@ -1385,7 +1392,7 @@
     </div>
 
     <!-- Puppies Life Miami -->
-    <div class="card">
+    <div class="card" data-owner="ana">
       <div class="thumb-wrap">
         <img class="card-thumb" src="https://puppieslife-card.pages.dev/dogs.avif" alt="Puppies Life Miami" style="object-position:center center;" onerror="this.style.display='none'">
         <div class="live-badge"><span class="live-dot"></span>LIVE</div>
@@ -1418,6 +1425,99 @@
     </div>
 
     <!-- EA Creative Audio -->
+
+    <!-- Ana Agency -->
+    <div class="card" data-owner="ana">
+      <div class="thumb-wrap">
+        <div class="thumb-gradient" style="background:linear-gradient(135deg,#0b0612,#1a0a2e,#2d1b69)">Ana · Agency</div>
+        <div class="live-badge"><span class="live-dot"></span>LIVE</div>
+      </div>
+      <div class="card-body">
+        <div class="card-meta">
+          <div class="card-ico" style="background:linear-gradient(135deg,#ff7a3b,#e05e1e)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+          <div>
+            <div class="card-title">Ana · Agency</div>
+            <div class="card-sub">Creative Partner</div>
+          </div>
+        </div>
+        <div class="card-url">🌐 ana-agency-card.pages.dev</div>
+        <div class="card-actions">
+          <a class="btn-view" href="https://ana-agency-card.pages.dev" target="_blank">View Card</a>
+          <button class="btn-sq" onclick="copyURL('https://ana-agency-card.pages.dev')">📋</button>
+          <button class="btn-sq" onclick="shareURL('https://ana-agency-card.pages.dev','Ana Agency')">📤</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ana Studio -->
+    <div class="card" data-owner="ana">
+      <div class="thumb-wrap">
+        <div class="thumb-gradient" style="background:linear-gradient(135deg,#0a0a14,#14142a,#1e1e4a)">Ana · Studio</div>
+        <div class="live-badge"><span class="live-dot"></span>LIVE</div>
+      </div>
+      <div class="card-body">
+        <div class="card-meta">
+          <div class="card-ico" style="background:linear-gradient(135deg,#ff7a3b,#e05e1e)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg></div>
+          <div>
+            <div class="card-title">Ana · Studio</div>
+            <div class="card-sub">Creative Producer</div>
+          </div>
+        </div>
+        <div class="card-url">🌐 ana-studio-card.pages.dev</div>
+        <div class="card-actions">
+          <a class="btn-view" href="https://ana-studio-card.pages.dev" target="_blank">View Card</a>
+          <button class="btn-sq" onclick="copyURL('https://ana-studio-card.pages.dev')">📋</button>
+          <button class="btn-sq" onclick="shareURL('https://ana-studio-card.pages.dev','Ana Studio')">📤</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ana Audio -->
+    <div class="card" data-owner="ana">
+      <div class="thumb-wrap">
+        <div class="thumb-gradient" style="background:linear-gradient(135deg,#04060d,#0d1224,#1d4ed8)">Ana · Audio</div>
+        <div class="live-badge"><span class="live-dot"></span>LIVE</div>
+      </div>
+      <div class="card-body">
+        <div class="card-meta">
+          <div class="card-ico" style="background:linear-gradient(135deg,#ff7a3b,#e05e1e)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div>
+          <div>
+            <div class="card-title">Ana · Audio</div>
+            <div class="card-sub">Event Coordinator</div>
+          </div>
+        </div>
+        <div class="card-url">🌐 ana-audio-card.pages.dev</div>
+        <div class="card-actions">
+          <a class="btn-view" href="https://ana-audio-card.pages.dev" target="_blank">View Card</a>
+          <button class="btn-sq" onclick="copyURL('https://ana-audio-card.pages.dev')">📋</button>
+          <button class="btn-sq" onclick="shareURL('https://ana-audio-card.pages.dev','Ana Audio')">📤</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ana bySophia -->
+    <div class="card" data-owner="ana">
+      <div class="thumb-wrap">
+        <div class="thumb-gradient" style="background:linear-gradient(135deg,#0a0608,#1a0a10,#2d1020)">Ana · Sophia</div>
+        <div class="live-badge"><span class="live-dot"></span>LIVE</div>
+      </div>
+      <div class="card-body">
+        <div class="card-meta">
+          <div class="card-ico" style="background:linear-gradient(135deg,#ff7a3b,#e05e1e)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg></div>
+          <div>
+            <div class="card-title">Ana · bySophia</div>
+            <div class="card-sub">AI Operations Manager</div>
+          </div>
+        </div>
+        <div class="card-url">🌐 ana-sophia-card.pages.dev</div>
+        <div class="card-actions">
+          <a class="btn-view" href="https://ana-sophia-card.pages.dev" target="_blank">View Card</a>
+          <button class="btn-sq" onclick="copyURL('https://ana-sophia-card.pages.dev')">📋</button>
+          <button class="btn-sq" onclick="shareURL('https://ana-sophia-card.pages.dev','Ana Sophia')">📤</button>
+        </div>
+      </div>
+    </div>
+
     <!-- Add New -->
     <a class="card-add" href="#" onclick="openModal(); return false;">
       <div class="add-circle">
@@ -2234,6 +2334,29 @@ function filterCards(q) {
   empty.style.display = (q && visible === 0) ? 'block' : 'none';
   document.getElementById('empty-q') && (document.getElementById('empty-q').textContent = q);
 }
+
+var _currentOwner = 'all';
+
+function filterOwner(owner, btn) {
+  _currentOwner = owner;
+  // Update active button
+  document.querySelectorAll('.owner-btn').forEach(function(b) { b.classList.remove('active'); });
+  if (btn) btn.classList.add('active');
+  // Show/hide cards
+  document.querySelectorAll('.cards-grid .card[data-owner]').forEach(function(c) {
+    if (owner === 'all' || c.dataset.owner === owner) {
+      c.style.display = '';
+    } else {
+      c.style.display = 'none';
+    }
+  });
+  // Update count badge
+  var visible = document.querySelectorAll('.cards-grid .card[data-owner]:not([style*="display: none"]):not([style*="display:none"])').length;
+  var el = document.getElementById('activeCount');
+  if (el) el.textContent = owner === 'all' ? '10' : (owner === 'johan' ? '4' : '6');
+}
+
+
 
 function setCardView(mode) {
   var grid = document.querySelector('.cards-grid');

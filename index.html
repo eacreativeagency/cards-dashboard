@@ -978,6 +978,62 @@
       .contacts-table-wrap { overflow-x: auto; }
       .section-head { flex-wrap: wrap; gap: 10px; }
       .chart-box { padding: 16px; }
+
+    /* ── OWNER FILTER ── */
+    .owner-filter {
+      display: flex;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 4px;
+      gap: 3px;
+    }
+    [data-theme="light"] .owner-filter {
+      background: rgba(0,0,0,0.04);
+      border-color: rgba(0,0,0,0.09);
+    }
+    .owner-btn {
+      display: flex; align-items: center; gap: 7px;
+      padding: 6px 12px 6px 6px;
+      border-radius: 10px;
+      font-size: 12px; font-weight: 600;
+      border: none; background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      transition: background .18s, color .18s, box-shadow .18s;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      white-space: nowrap;
+    }
+    .owner-btn:hover { color: var(--text); }
+    .owner-btn.active {
+      background: var(--surface2);
+      color: var(--text);
+      box-shadow: 0 1px 6px rgba(0,0,0,0.22);
+    }
+    [data-theme="light"] .owner-btn.active {
+      background: #fff;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.10);
+    }
+    .owner-av {
+      width: 22px; height: 22px; border-radius: 50%;
+      display: inline-flex; align-items: center; justify-content: center;
+      font-size: 10px; font-weight: 800; color: #fff;
+      flex-shrink: 0; letter-spacing: 0;
+    }
+    .owner-label { font-size: 12px; }
+    .owner-count {
+      font-size: 10px; font-weight: 700;
+      background: var(--surface2);
+      color: var(--muted);
+      padding: 1px 6px; border-radius: 100px;
+      line-height: 16px;
+    }
+    .owner-btn.active .owner-count {
+      background: rgba(255,122,59,0.14);
+      color: var(--orange);
+    }
+    [data-theme="light"] .owner-count { background: rgba(0,0,0,0.06); }
+
     }
   </style>
 </head>
@@ -1197,9 +1253,21 @@
     <div style="display:flex;align-items:center;gap:12px;">
       <div class="section-title" data-i18n="allCards">All Cards</div>
       <div class="owner-filter">
-        <button class="owner-btn all active" onclick="filterOwner('all',this)"><span class="owner-dot"></span>All</button>
-        <button class="owner-btn johan" onclick="filterOwner('johan',this)"><span class="owner-dot"></span>Johan</button>
-        <button class="owner-btn ana" onclick="filterOwner('ana',this)"><span class="owner-dot"></span>Ana</button>
+        <button class="owner-btn all active" onclick="filterOwner('all',this)">
+          <span class="owner-av" style="background:linear-gradient(135deg,#ff7a3b,#e05e1e)">✦</span>
+          <span class="owner-label">All</span>
+          <span class="owner-count">10</span>
+        </button>
+        <button class="owner-btn johan" onclick="filterOwner('johan',this)">
+          <span class="owner-av" style="background:linear-gradient(135deg,#3b82f6,#1d4ed8)">J</span>
+          <span class="owner-label">Johan</span>
+          <span class="owner-count">4</span>
+        </button>
+        <button class="owner-btn ana" onclick="filterOwner('ana',this)">
+          <span class="owner-av" style="background:linear-gradient(135deg,#C4698E,#a84e72)">A</span>
+          <span class="owner-label">Ana</span>
+          <span class="owner-count">6</span>
+        </button>
       </div>
     </div>
     <div style="display:flex;align-items:center;gap:10px;">

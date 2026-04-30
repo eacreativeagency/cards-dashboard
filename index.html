@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -2252,7 +2252,7 @@ function saveSettings() {
   }
   // apply after BG engine is ready
   window.addEventListener('load', function() {
-    var t = localStorage.getItem('cardzy_bg_type')    || 'particles';
+    var t = localStorage.getItem('cardzy_bg_type')    || 'network';
     var e = localStorage.getItem('cardzy_bg_enabled');
     var eOn = (e === null ? true : e === '1');
     BG.setType(t);
@@ -2891,7 +2891,7 @@ var BG = (function() {
     else if(current==='stars') { initStars(); loopStars(); }
   }
 
-  start('stars');
+  start('network');
 
   return {
     setType: function(t) { start(t); },
